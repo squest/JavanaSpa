@@ -4,28 +4,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("We are making something here");
         long res = Prime.sieve(2000000);
-        for (int i = 1; i <= 2; i++) {
-            long startTime = System.nanoTime();
-            res = Prime.sieve(2000000);
-            long endTime = System.nanoTime();
-            long duration = endTime - startTime;
-            System.out.println("This is number 10");
-            System.out.println(res);
-            long divs = duration / 1000000;
-            long rems = 1000000 + (duration % 1000000);
-            System.out.println(divs + "." + rems + "ms " + duration / 1000 + " micro seconds");
-        }
-        for (int i = 1; i <= 2; i++) {
-            long startTime = System.nanoTime();
-            res = Prime.sol7(10001);
-            long endTime = System.nanoTime();
-            long duration = endTime - startTime;
-            System.out.println("This is number 7");
-            System.out.println(res);
-            long divs = duration / 1000000;
-            long rems = 1000000 + (duration % 1000000);
-            System.out.println(divs + "." + rems + "ms " + duration / 1000 + " micro seconds");
-        }
+
 
         for (int i = 1; i <= 2; i++) {
             long startTime = System.nanoTime();
@@ -51,9 +30,6 @@ public class Main {
             System.out.println(divs + "." + rems + "ms " + duration / 1000 + " micro seconds");
         }
 
-        List itmp = SmallProblems.numcol(12321);
-        System.out.println(itmp);
-        System.out.println(SmallProblems.isPalin(itmp));
 
 
         for (int i = 1; i <= 2; i++) {
@@ -61,11 +37,96 @@ public class Main {
             res = SmallProblems.sol3(600851475143L);
             long endTime = System.nanoTime();
             long duration = endTime - startTime;
-            System.out.println("This is number 3");
+            System.out.println("This is number 3a");
             System.out.println(res);
             long divs = duration / 1000000;
             long rems = 1000000 + (duration % 1000000);
             System.out.println(divs + "." + rems + "ms " + duration / 1000 + " micro seconds");
         }
+
+        for (int i = 1; i <= 2; i++) {
+            long startTime = System.nanoTime();
+            res = SmallProblems.sol3b(600851475143L);
+            long endTime = System.nanoTime();
+            long duration = endTime - startTime;
+            System.out.println("This is number 3b");
+            System.out.println(res);
+            long divs = duration / 1000000;
+            long rems = 1000000 + (duration % 1000000);
+            System.out.println(divs + "." + rems + "ms " + duration / 1000 + " micro seconds");
+        }
+
+        for (int i = 1; i <= 2; i++) {
+            long startTime = System.nanoTime();
+            res = SmallProblems.sol4(999);
+            long endTime = System.nanoTime();
+            long duration = endTime - startTime;
+            System.out.println("This is number 4");
+            System.out.println(res);
+            long divs = duration / 1000000;
+            long rems = 1000000 + (duration % 1000000);
+            System.out.println(divs + "." + rems + "ms " + duration / 1000 + " micro seconds");
+        }
+
+        for (int i = 1; i <= 2; i++) {
+            long startTime = System.nanoTime();
+            res = SmallProblems.sol5(20);
+            long endTime = System.nanoTime();
+            long duration = endTime - startTime;
+            System.out.println("This is number 5");
+            System.out.println(res);
+            long divs = duration / 1000000;
+            long rems = 1000000 + (duration % 1000000);
+            System.out.println(divs + "." + rems + "ms " + duration / 1000 + " micro seconds");
+        }
+
+        for (int i = 1; i <= 2; i++) {
+            long startTime = System.nanoTime();
+            res = SmallProblems.sol6(100);
+            long endTime = System.nanoTime();
+            long duration = endTime - startTime;
+            System.out.println("This is number 6");
+            System.out.println(res);
+            long divs = duration / 1000000;
+            long rems = 1000000 + (duration % 1000000);
+            System.out.println(divs + "." + rems + "ms " + duration / 1000 + " micro seconds");
+        }
+
+        for (int i = 1; i <= 2; i++) {
+            long startTime = System.nanoTime();
+            res = Prime.sol7(10001);
+            long endTime = System.nanoTime();
+            long duration = endTime - startTime;
+            System.out.println("This is number 7");
+            System.out.println(res);
+            long divs = duration / 1000000;
+            long rems = 1000000 + (duration % 1000000);
+            System.out.println(divs + "." + rems + "ms " + duration / 1000 + " micro seconds");
+        }
+
+        for (int i = 1; i <= 2; i++) {
+            long startTime = System.nanoTime();
+            res = SmallProblems.sol9(1000);
+            long endTime = System.nanoTime();
+            long duration = endTime - startTime;
+            System.out.println("This is number 9");
+            System.out.println(res);
+            long divs = duration / 1000000;
+            long rems = 1000000 + (duration % 1000000);
+            System.out.println(divs + "." + rems + "ms " + duration / 1000 + " micro seconds");
+        }
+
+        for (int i = 1; i <= 2; i++) {
+            long startTime = System.nanoTime();
+            res = Prime.sieve(2000000);
+            long endTime = System.nanoTime();
+            long duration = endTime - startTime;
+            System.out.println("This is number 10");
+            System.out.println(res);
+            long divs = duration / 1000000;
+            long rems = 1000000 + (duration % 1000000);
+            System.out.println(divs + "." + rems + "ms " + duration / 1000 + " micro seconds");
+        }
+
     }
 }
