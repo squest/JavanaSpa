@@ -1,3 +1,4 @@
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -49,6 +50,11 @@ public class Main {
             long rems = 1000000 + (duration % 1000000);
             System.out.println(divs + "." + rems + "ms " + duration / 1000 + " micro seconds");
         }
+
+        List itmp = SmallProblems.numcol(12321);
+        System.out.println(itmp);
+        System.out.println(SmallProblems.isPalin(itmp));
+
 
         for (int i = 1; i <= 2; i++) {
             long startTime = System.nanoTime();

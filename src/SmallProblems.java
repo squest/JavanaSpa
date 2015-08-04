@@ -1,3 +1,8 @@
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Any;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by questmac on 8/5/15.
  */
@@ -53,6 +58,42 @@ public class SmallProblems {
             }
             i += 2;
         }
+    }
+
+    public static List numcol (int n) {
+        List<Integer> res = new ArrayList<>();
+        while (true) {
+            if (n < 10) {
+                res.add(0,n);
+                return res;
+            } else {
+                res.add(0, n % 10);
+                n /= 10;
+            }
+        }
+    }
+
+    public static List reverse (List<Integer> col) {
+        List<Integer> res = new ArrayList<>();
+        for (Integer i : col) {
+            res.add(0,i);
+        }
+        return res;
+    }
+
+    private static boolean cmp(List<?> l1, List<?> l2) {
+        // make a copy of the list so the original list is not changed, and remove() is supported
+        ArrayList<?> cp = new ArrayList<>(l1);
+        for (Object o : l2) {
+            if (!cp.remove(o)) {
+                return false;
+            }
+        }
+        return cp.isEmpty();
+    }
+
+    public static boolean isPalin (List<Integer> col) {
+        return cmp(col, reverse(col));
     }
 
 }
