@@ -1,12 +1,10 @@
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Any;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by questmac on 8/5/15.
  */
+
 public class SmallProblems {
 
     // This one runs in 0.5ms
@@ -77,6 +75,20 @@ public class SmallProblems {
             }
             i += 2;
         }
+    }
+
+    public static long sol3c (long tar) {
+        long n = tar; int i = 3; int lim = 10000000;
+        while (i <= lim) {
+            while ((0 == n % i) && isPrime(i)){
+                n /= i;
+                if (0 != n % i){
+                    lim = (int) Math.sqrt((double) n);
+                }
+            }
+            i += 2;
+        }
+        return n;
     }
 
     public static List numcol (int n) {
@@ -178,16 +190,113 @@ public class SmallProblems {
 
     // runs in 1ms
     public static int sol9(int lim) {
-        for (int i = 3; i <= (lim/4); i+=1) {
-            int isqr = i*i;
-            for (int j = i+1; j <= (lim/2); j+=1) {
-                int jsqr = j*j;
-                int k = 1000-(i+j);
-                if (k*k == isqr+jsqr) {
-                    return i*j*k;
+        for (int i = 3; i <= (lim / 4); i += 1) {
+            int isqr = i * i;
+            for (int j = i + 1; j <= (lim / 2); j += 1) {
+                int jsqr = j * j;
+                int k = 1000 - (i + j);
+                if (k * k == isqr + jsqr) {
+                    return i * j * k;
                 }
             }
         }
         return 1;
     }
+
+    // runs in 2.2ms
+    public static int sol12 (int lim, int tar) {
+        int [] faks = new int[lim+1];
+        int llim = (int) Math.sqrt ((double) lim);
+        for (int i = 1; i <= llim; i++){
+            faks[i*i] += 1;
+            for (int j = i*i+i; j <= lim; j += i){
+                faks[j] += 2;
+            }
+        }
+        for (int i=llim; i<lim; i += 2){
+            int ifaks = faks[i];
+            int jfaks = faks[i+1];
+            int tmp;
+            if (0 == i % 2) {
+                tmp = (ifaks-2)*jfaks;
+            } else {
+                tmp = (jfaks-2)*ifaks;
+            }
+            if (tmp > tar) {
+                return i*(i+1)/2;
+            }
+        }
+        return tar;
+
+    }
+
+    // runs in 78ms
+    public static int sol14(int lim) {
+        int[] refs = new int[lim];
+        for (int i = 1; i < lim; i++) {
+            long a = i;
+            int ctr = 1;
+            while (a != 1) {
+                if (a >= lim) {
+                    ctr += 1;
+                    if (0 == a % 2) {
+                        a /= 2;
+                    } else {
+                        a = 3 * a + 1;
+                    }
+                } else {
+                    int tmp = refs[(int) a];
+                    if (tmp == 0) {
+                        ctr += 1;
+                        if (0 == a % 2) {
+                            a /= 2;
+                        } else {
+                            a = 3*a+1;
+                        }
+                    } else {
+                        ctr += tmp;
+                        a = 1;
+                    }
+                }
+            }
+            refs[i] = ctr;
+        }
+        int maxi = 0; int cur = 0;
+        for (int i = 1; i < lim; i++) {
+            int tmp = refs[i];
+            if (tmp > maxi) {
+                maxi = tmp;
+                cur = i;
+            }
+        }
+        return cur;
+    }
+
+    // runs in 1.8ms
+    public static int sol21 (int n) {
+        int lim = 3*n;
+        int[] refs = new int[lim+1];
+        for (int i = 1; i <= lim; i++){
+            refs[i] = 1;
+        }
+        int llim = (int) Math.sqrt((double) lim);
+        for (int i = 2; i <= llim; i++){
+            refs[i*i] += i;
+            for (int j = i*i+i; j <= lim; j+= i){
+                refs[j] += i + j/i ;
+            }
+        }
+        int res = 0;
+        for(int i=2; i <= n; i++ ) {
+            int tmp = refs[i];
+            if (i != tmp) {
+                if (i == refs[tmp]) {
+                    res += i;
+                }
+            }
+
+        }
+        return res;
+    }
+
 }
